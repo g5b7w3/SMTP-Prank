@@ -1,11 +1,12 @@
 # SMTP-Prank
 ## Description
-Ce projet envois des mails forgés a des groupes de personne. Le programme crée les groupes a partir d'une liste d'addresse mail fournie par l'utilisateur. Le contenu du message est également choisi par l'utilisateur.
+Ce projet est un laboratoire pour le cours de RES de l'HEIG-VD. Ce laboratoire à pour but de prank des utilisateur en leur envoyant des mails forgés.
 ## Instalation et implementation d'un serveur SMTP de test
 L'installation d'un serveur SMTP en local permet de faire des tests sans envoyer les mails à d'autres personnes. Cela permet également de voir le contenu du mail généré.
 Pour effectuer mes tests de fonctionnements j'ai utilisé MockMock. <br> Lien : https://github.com/tweakers/MockMock <br>
-Cette application fournit une interface web supplémentaire qui permet de simuler une boîte de réception. Il est possible de choisir les ports que l'on souhaite utilisé pour l'interface web et pour le serveur SMTP. Par défaut le serveur STMP utilise le port 25, certain OS peuvent empécher le lancement du serveur sur ce port si l'application n'est pas executé par un utilisateur administateur.
+Cette application fournit une interface web supplémentaire qui permet de simuler une boîte de réception, accessible sur http://localhost:8282. Il est possible de choisir les ports que l'on souhaite utilisé pour l'interface web et pour le serveur SMTP. Par défaut le serveur STMP utilise le port 25, certain OS peuvent empécher le lancement du serveur sur ce port si l'application n'est pas executé par un utilisateur administateur.
 ## Configuration de l'outils de génération de prank
+Pour utiliser cette application, il faut commencer par clone le repository. Ensuite il est possible de modifier les 3 fichiers suivants afin de renseigner aux programmes quelques informations nécessaire. Si les fichiers ne sont pas modifié l'application fonctionnera et enverra des messages sur des addresses non existantes et sur le serveur SMTP mock.
 A la base du git se trouve le dossier "config". Il contient les trois différents fichiers de configuration du programme.
 ### Config.properties 
 - SmtpServerAddress : Permet de configurer l'addresse du serveur SMTP, par défaut localhost est utilisé. 
@@ -16,7 +17,14 @@ A la base du git se trouve le dossier "config". Il contient les trois différent
 Ce fichier permet de définir le contenu de différent message qui peuvent être envoyés par l'application. Les messages contiennt un sujet et son terminer par la suite de caractère suivante : ==
 Le fichier contien actuellement des messages de tests, remplis par du Lorem ipsum
 ### victims.utf8
-Ce fichier contient la liste de toutes les addresses mails qui seront utilisés par l'application. Les addresses sont séparés par un retour a la ligne. Il contient actuellement une liste de 19 addresses générées sur internet
+Ce fichier contient la liste de toutes les addresses mails qui seront utilisés par l'application. Les addresses sont séparés par un retour a la ligne. Il contient actuellement une liste de 19 addresses générées sur internet <br>
+Une fois les configurations le plus simple et d'utiliser docker.
+Construire l'image : <br>
+``` ./docker/build.sh```<br>
+Démarrer le container : <br>
+``` ./docker/run.sh```<br>
+Tout est en place, il reste plus qu'a exécuté le projet : <br>
+``` java -jar ```<br>
 ## Implementation
 L'application contient 5 packages différents. 
 -config : permet de géré la partie de configuration des messages et des addresses mails fournie. Il est formé d'une classe et d'une interface, qui vont chercher les données dans le fichier de configuration et les stockés dans des listes ou des variables privée accessible par des méthodes "get".
