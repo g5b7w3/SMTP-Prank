@@ -6,19 +6,19 @@ L'installation d'un serveur SMTP en local permet de faire des tests sans envoyer
 Pour effectuer mes tests de fonctionnements j'ai utilisé MockMock. <br> Lien : https://github.com/tweakers/MockMock <br>
 Cette application fournit une interface web supplémentaire qui permet de simuler une boîte de réception, accessible sur http://localhost:8282. Il est possible de choisir les ports que l'on souhaite utilisé pour l'interface web et pour le serveur SMTP. Par défaut le serveur STMP utilise le port 25, certain OS peuvent empécher le lancement du serveur sur ce port si l'application n'est pas executé par un utilisateur administateur.
 ## Configuration de l'outils de génération de prank
-Pour utiliser cette application, il faut commencer par clone le repository. Ensuite il est possible de modifier les 3 fichiers suivants afin de renseigner aux programmes quelques informations nécessaire. Si les fichiers ne sont pas modifié l'application fonctionnera et enverra des messages sur des addresses non existantes et sur le serveur SMTP mock.
+Pour utiliser cette application, il faut commencer par clone le repository. Ensuite il est possible de modifier les 3 fichiers suivants afin de renseigner les programmes sur quelques informations nécessaire. Si les fichiers ne sont pas modifiés, l'application fonctionnera et enverra des messages sur des addresses non existantes et sur le serveur SMTP mock.
 A la base du git se trouve le dossier "config". Il contient les trois différents fichiers de configuration du programme.
 ### Config.properties 
-- SmtpServerAddress : Permet de configurer l'addresse du serveur SMTP, par défaut localhost est utilisé. 
-- smtpServerPort : Permet de configurer le port d'écoute du serveur STMP, par défaut il utilise le port 25.
-- numberOfGroupes : Permet de définir le nombre de groupe de personne que l'on veut crée, par défaut le programme sépare la liste d'utilisateur en 3.
+- SmtpServerAddress : Permet de configurer l'addresse du serveur SMTP. Par défaut localhost est utilisé. 
+- smtpServerPort : Permet de configurer le port d'écoute du serveur STMP. Par défaut il utilise le port 25.
+- numberOfGroupes : Permet de définir le nombre de groupe de personne que l'on veut crée. Par défaut le programme sépare la liste d'utilisateur en 3.
 - witnessToCc : permet d'ajouter une addresse en copie aux mails envoyés.
 ### Messages.utf8
-Ce fichier permet de définir le contenu de différent message qui peuvent être envoyés par l'application. Les messages contiennt un sujet et son terminer par la suite de caractère suivante : ==
-Le fichier contien actuellement des messages de tests, remplis par du Lorem ipsum
+Ce fichier permet de définir le contenu de différents messages qui peuvent être envoyés par l'application. Les messages contiennent un sujet et son terminés par la suite de caractères suivante : ==
+Le fichier contient actuellement des messages de tests, remplis par du Lorem ipsum.
 ### victims.utf8
-Ce fichier contient la liste de toutes les addresses mails qui seront utilisés par l'application. Les addresses sont séparés par un retour a la ligne. Il contient actuellement une liste de 19 addresses générées sur internet <br>
-Une fois les configurations le plus simple et d'utiliser docker.
+Ce fichier contient la liste de toutes les addresses mails qui seront utilisées par l'application. Les addresses sont séparées par un retour à la ligne. Il contient actuellement une liste de 19 addresses générées sur internet. <br>
+Une fois les configurations faites, le plus simple et d'utiliser docker.
 Construire l'image : <br>
 ``` ./docker/build.sh```<br>
 Démarrer le container : <br>
