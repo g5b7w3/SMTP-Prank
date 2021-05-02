@@ -32,9 +32,6 @@ public class Main {
         properties.load(new FileInputStream("config/config.properties"));
 
 
-
-        //ISmtpClient smtpClient = new SmtpClient(properties.getProperty("smtpServerAddress"),Integer.parseInt(properties.getProperty("smtpServerPort")));
-
         ISmtpClient smtpClient = new SmtpClient(icm.getSrvAddress(),icm.getSrvPort());
         for (Prank p : prankList){
             smtpClient.sendMessage(p.generateMailMessage());
