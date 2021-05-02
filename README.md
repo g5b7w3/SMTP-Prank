@@ -26,7 +26,7 @@ Démarrer le container : <br>
 Tout est en place, il reste plus qu'a exécuté le projet : <br>
 ``` java -jar /target/STMP-Prank-1.0-SNAPSHOT.jar ```<br>
 ## Implementation
-![Diagramme de classe](figures/SMTP-prank.png)
+![Diagramme de classe](figures/STMP-prank.png)<br>
 L'application contient 5 packages différents. 
 -config : permet de géré la partie de configuration des messages et des addresses mails fournie. Il est formé d'une classe et d'une interface, qui vont chercher les données dans le fichier de configuration et les stockés dans des listes ou des variables privée accessible par des méthodes "get".
 - model : contient deux autres packages (mail et prank)
