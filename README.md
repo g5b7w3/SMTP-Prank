@@ -24,13 +24,33 @@ Construire l'image : <br>
 Démarrer le container : <br>
 ``` ./docker/run.sh```<br>
 Tout est en place, il reste plus qu'a exécuté le projet : <br>
-``` java -jar ```<br>
+``` java -jar /target/STMP-Prank-1.0-SNAPSHOT.jar ```<br>
 ## Implementation
+![Diagramme de classe](figures/SMTP-prank.png)
 L'application contient 5 packages différents. 
 -config : permet de géré la partie de configuration des messages et des addresses mails fournie. Il est formé d'une classe et d'une interface, qui vont chercher les données dans le fichier de configuration et les stockés dans des listes ou des variables privée accessible par des méthodes "get".
 - model : contient deux autres packages (mail et prank)
 - mail : Fournis via 3 classes les méthodes permettant de "set" et "get" des attributs aux messages, aux persones et aux groupes. Ce package ne travaille pas les données il permet juste de représenter les 3 différentes entitées cités juste aux dessus.
 - prank : Permet de généré le contenu d'un message ainsi que la personne qui l'envoie et ceux qui vont le recevoir.
 - smtp : Permet de géré toute la connexion avec le serveur STMP. Il permet d'envoyer les emails aux victimes, un système de log permet d'affichger en console tout ce qui se passe lors des discussions avec le serveur SMTP. <br>
+
+### Discussion avec le serveur SMTP
+Client : connect<br>
+Serveur : 220 OK<br>
+Client : EHLO localhost<br>
+Serveur : 250 OK<br>
+Client : MAIL FROM<br>
+Serveur : 250 OK<br>
+Client : RCPT TO (Boucle si il y'a plusieurs receveur)<br>
+Serveur : 250 OK<br>
+Client : DATA<br>
+Serveur : 354<br>
+Client : Le contenu du mail (en-tête, sujet, corps)<br>
+Client : .<br>
+Serveur : 250 OK<br>
+Client : QUIT<br>
+Serveur : 221 Closing connection<br>
+
+
 
 Le fichier main permet d'intialiser les différentes instances nécessaires pour l'exécution complète du programme. 
