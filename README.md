@@ -23,6 +23,6 @@ L'application contient 5 packages différents.
 - model : contient deux autres packages (mail et prank)
 - mail : Fournis via 3 classes les méthodes permettant de "set" et "get" des attributs aux messages, aux persones et aux groupes. Ce package ne travaille pas les données il permet juste de représenter les 3 différentes entitées cités juste aux dessus.
 - prank : Permet de généré le contenu d'un message ainsi que la personne qui l'envoie et ceux qui vont le recevoir.
-- -smtp : Permet de géré toute la connexion avec le serveur STMP. Il permet d'envoyer les emails aux victimes, un système de log permet d'affichger en console tout ce qui se passe lors des discussions avec le serveur SMTP. <br>
+- smtp : Permet de géré toute la connexion avec le serveur STMP. Il permet d'envoyer les emails aux victimes, un système de log permet d'affichger en console tout ce qui se passe lors des discussions avec le serveur SMTP. <br>
 
 Le fichier main permet d'intialiser les différentes instances nécessaires pour l'exécution complète du programme. 
