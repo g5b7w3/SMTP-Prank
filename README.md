@@ -51,6 +51,4 @@ Serveur : 250 OK<br>
 Client : QUIT<br>
 Serveur : 221 Closing connection<br>
 
-
-
-Le fichier main permet d'intialiser les différentes instances nécessaires pour l'exécution complète du programme. 
+Le fichier main permet d'intialiser les différentes instances nécessaires pour l'exécution complète du programme comme on peut le voir sur le diagramme de classe.
